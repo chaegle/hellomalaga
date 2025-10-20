@@ -3,7 +3,7 @@ PROGS=hellomalaga
 BINDIR = /usr/bin
 all: $(PROGS)
 
-simpleserver: hellomalaga.c
+hellomalaga: hellomalaga.c
 	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^
 
 clean:
