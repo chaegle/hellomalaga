@@ -1,27 +1,15 @@
-# Simple Makefile for Hello World
+CFLAGS += -Wall -g
+PROGS=hellomalaga
+BINDIR = /usr/bin
+all: $(PROGS)
 
-# Compiler and flags
-CC := $(CROSS_COMPILE)gcc
-CFLAGS := -Wall -O2
+simpleserver: hellomalaga.c
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^
 
-# Output binary
-TARGET := hellomalaga
-
-# Source files
-SRCS := main.c
-OBJS := $(SRCS:.c=.o)
-
-# Default target
-all: $(TARGET)
-
-$(TARGET): $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $^
-
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
-
-# Clean target
 clean:
-	rm -f $(OBJS) $(TARGET)
+	rm -f *.o
+	rm -f $(PROGS)
 
-.PHONY: all clean
+install:
+	mkdir -p $(TARGET_DIR)$(BINDIR)
+	install -m 755 $(PROGS) $(TARGET_DIR)$(BINDIR
