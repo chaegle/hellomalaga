@@ -5,7 +5,7 @@ CC := $(CROSS_COMPILE)gcc
 CFLAGS := -Wall -O2
 
 # Output binary
-TARGET := hello
+TARGET := hellomalaga
 
 # Source files
 SRCS := main.c
